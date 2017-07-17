@@ -1,0 +1,68 @@
+[core]
+    pager = "less -F -X -e"
+    attributes = ~/.gitattributes
+
+[alias]
+    sa = config --get-regexp alias
+    st = status -s
+    sv = show -v
+    ci = commit
+    co = checkout
+    br = branch
+    lf = show --name-only
+    gl = log --graph --abbrev-commit --pretty=oneline --decorate
+    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+    #oc = "!git_id () { printf 'blob %s\0' \"$(ls -l \"$1\" | awk '{print $5;}')\" | cat - "$1" | sha1sum | awk '{print $1}'; }; git_id; git hash-object \"$1\""
+    #oc = "!git_id () { printf 'blob %s\0' \"$(ls -l \"$1\" | awk '{print $5;}')\" | cat - \"$1\" | sha1sum | awk '{print $1}'; }; git_id"
+    #somewhat working#oc = "!git_id() { sha1sum \"`pwd`/$1\"; }; git_id"
+
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    #gpr = "!git pull --rebase 2>&1 | tee -a pull.log"
+    #gpr = "!git pull --rebase 2>&1 | tee -a pull.log"
+
+    # bbproblem
+    gpr = "!((echo -n '---'; date | tr -d '\n'; echo ' ---'; git pull --rebase 2>&1); echo '---') | tee -a pull.log"
+    pl = "!less -F -X -e pull.log"
+    plt = "!tail -32 pull.log"
+    gt = "!((echo '###'; git log | head); echo '###')| tee -a test.log"
+    tr = log --follow -p  # trace the history of a single file
+    gls = log --stat
+    gds = diff --stat
+    gdc = diff --cached
+    gsa = "!sh -c 'git stash apply stash@{$1}' -"
+    gss = stash save
+    rso = remote show origin
+
+    # ignore some file added to index
+    au = update-index --assume-unchanged
+    nau = update-index --no-assume-unchanged
+    lau = "!git ls-files -v|grep '^h'"
+
+
+    # pretty graph: http://stackoverflow.com/a/9074343
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = "!git lg1"
+
+[color]
+    branch = auto
+    diff   = auto
+    interactive = auto
+    status = auto
+
+[push]
+    default = current
+[gui]
+    fontui = -family \"Droid Sans\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+    fontdiff = -family \"Droid Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+
+[diff "word"]
+    textconv = "/usr/local/bin/docx2txt"
+[merge]
+    tool = meld
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f

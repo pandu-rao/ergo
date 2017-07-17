@@ -1,0 +1,12 @@
+## for python2.7 development
+## do sudo apt-get install virtualenvwrapper
+
+# WORKON_HOME=/usr/local/share/virtualenvs
+# . /usr/bin/virtualenvwrapper.sh
+
+
+## for color source code pager
+## do sudo apt-get install -y source-highlight
+
+# export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s";
+# export LESS=' -R ';
