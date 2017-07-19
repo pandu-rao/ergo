@@ -23,14 +23,16 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 #
 alias m='more ';
 alias mm='less -X -F -e ';
-alias ls='ls --color=always '; # to temporarily disable, use: unalias ls or pls
-alias pls='ls --color=never '; # do not use colors
-alias l='ls -lF ';
-alias ll='ls -lAF ';
+alias als='ls --color=always '; # always colored ls
+alias pls='ls --color=never '; # never colored ls
+alias l='als -lF ';
+alias lh='als -lh ';
+alias ll='als -lAF ';
 alias lm='l | m ';
 alias llm='ll | m '
-alias lsd='ls -lAd */ '; # list only directories
-alias ltr='l -tr';       # list in reverse order of creation/modified time
+alias lsd='als -lAd */ '; # list only directories
+alias ltr='l -tr'; # list in reverse order of creation/modified time
+alias lltr='als -lAFtr'; # list in reverse order of creation/modified time
 alias g='grep ';
 alias md='mkdir ';
 alias rd='rmdir ';
