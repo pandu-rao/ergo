@@ -50,9 +50,14 @@ if $cygwin; then
 else
     alias acs='apt-cache search ';
     alias acw='apt-cache show ';
+
     alias td='tree -d ';
     alias td2='td -L 2 ';
     alias td3='td -L 3 ';
+
+    alias bls='byobu list-sessions';
+    alias bat='byobu attach-session -t ';
+    alias bns='byobu new-session -s ';
 fi
 
 HISTCONTROL=ignoreboth;
