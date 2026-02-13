@@ -227,8 +227,7 @@ function ep()
         clr_dir=$clr_lightblue;
     fi
 
-    PS1="{\t}$clr_path[\$(pwd)]$clr_bg \$(xfill)$clr_branch\$(parse_git_branch)$clr_bg\n$clr_user\u$clr_bg@$clr_host\h$clr_bg$clr_dir \W $clr_bg\$ "
-
+    PS1="{\t}$clr_path[\$(pwd)]$clr_bg \$(xfill)$clr_branch\$(parse_git_branch)$clr_bg\n$clr_user\u$clr_bg@$clr_host\h$clr_bg$clr_dir \W $clr_bg\$([ \$UID -eq 0 ] && echo '#' || echo '\$') ";
     #################################################################
     # bash prompt color codes
 
