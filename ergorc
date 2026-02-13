@@ -264,12 +264,12 @@ function ep()
 #
 # ergo dir colors
 #
-if [ -n ${xterm#$TERM} ]; then
-    eval "`dircolors --sh ~/.ergo/.dir_colors_light`"
+if [ -n "${xterm#$TERM}" ]; then
+    eval "$(dircolors --sh ~/.ergo/.dir_colors_light)";
 fi
 
 if [ "$TERM" = "linux" ]; then
-    eval "`dircolors --sh ~/.ergo/.dir_colors_dark`"
+    eval "$(dircolors --sh ~/.ergo/.dir_colors_dark)";
 fi
 
 #
