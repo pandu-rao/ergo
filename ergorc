@@ -275,9 +275,8 @@ fi
 #
 # Switch to Nord/dark theme
 #
-function theme-nord() {
+function theme-dark() {
     eval "$(dircolors --sh ~/.ergo/.dir_colors_dark)";
-    echo "Switched to Nord/dark theme";
 }
 
 #
@@ -285,7 +284,6 @@ function theme-nord() {
 #
 function theme-light() {
     eval "$(dircolors --sh ~/.ergo/.dir_colors_light)";
-    echo "Switched to light theme";
 }
 
 #
