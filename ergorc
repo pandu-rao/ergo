@@ -359,6 +359,11 @@ function higrep() {
 }
 
 # include user customizations
+if [ -f ~/.ergo/.sensible ]; then
+    . ~/.ergo/.sensible;
+fi
+
+# include user customizations
 if [ -f ~/.ergo/.customrc ]; then
     . ~/.ergo/.customrc
 fi
