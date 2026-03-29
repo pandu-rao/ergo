@@ -2,6 +2,11 @@
     pager = "less -F -X -e"
     attributes = ~/.gitattributes
 
+[color "decorate"]
+    HEAD = blue bold
+    branch = green
+    tag = magenta
+
 [alias]
     sa = config --get-regexp alias
     st = status -s
