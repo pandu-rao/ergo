@@ -35,7 +35,7 @@
     gls = log --stat
     gds = diff --stat
     gdc = diff --cached
-    gsa = "!sh -c 'git stash apply stash@{$1}' -"
+    gsa = "!sh -c 'git stash apply stash@{$1:-0}' -"
     gss = stash save
     rso = remote show origin
 
